@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useFormik } from "formik";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup"
 
 function Login() {
@@ -8,7 +9,7 @@ function Login() {
     const userSchema = yup.object({
         email: yup.string().email("invalid email address").required(),
     })
-
+    const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -16,7 +17,10 @@ function Login() {
         },
         onSubmit: (values) => {
             console.log(values)
-            axios.post("https://ecommerce.routemisr.com/api/v1/auth/signin",values).then(res => console.log(res)).catch(res => setErrorMsg(res.response.data.message))
+            axios.post("https://ecommerce.routemisr.com/api/v1/auth/signin",values).then(res => {
+                console.log(res)
+                navigate('/home')
+            }).catch(res => setErrorMsg(res.response.data.message))
         },
         validationSchema: userSchema
 

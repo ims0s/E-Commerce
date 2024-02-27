@@ -5,10 +5,12 @@ import Register from "./Components/Register/Register.component"
 import NotFound from './Components/NotFound/NotFound.component';
 import Login from './Components/Login/Login.component';
 import Products from './Components/Products/Products.component';
+import Home from './Components/Home/Home.component';
 
 const router = createBrowserRouter([
     {path:"/", element:<MainLayout  />  , children:[
-        {index:true , element: <Register /> },
+        {index:true , element: <Home /> },
+        {path:"home" , element:<Home />},
         {path:"register" , element: <Register /> },
         {path:"login" , element: <Login /> },
         {path:"products" , element: <Products /> },

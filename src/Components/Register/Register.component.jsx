@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useFormik } from "formik";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup"
 
 function Register() {
     const [errorMsg , setErrorMsg] = useState('')
+    const navigate = useNavigate();
     const userSchema = yup.object({
         name: yup.string().required().min(3).max(26),
         email: yup.string().email("invalid email address").required(),
@@ -23,7 +25,10 @@ function Register() {
         },
         onSubmit: (values) => {
             console.log(values)
-            axios.post("https://ecommerce.routemisr.com/api/v1/auth/signup",values).then(res => console.log(res)).catch(res => setErrorMsg(res.response.data.message))
+            axios.post("https://ecommerce.routemisr.com/api/v1/auth/signup",values).then(res => {
+                console.log(res)
+                navigate('/login')
+            }).catch(res => setErrorMsg(res.response.data.message))
         },
         validationSchema: userSchema
 
