@@ -6,6 +6,7 @@ import NotFound from './Components/NotFound/NotFound.component';
 import Login from './Components/Login/Login.component';
 import Products from './Components/Products/Products.component';
 import Home from './Components/Home/Home.component';
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 
 const router = createBrowserRouter([
     {path:"/", element:<MainLayout  />  , children:[
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
         {path:"home" , element:<Home />},
         {path:"register" , element: <Register /> },
         {path:"login" , element: <Login /> },
-        {path:"products" , element: <Products /> },
+        {path:"products" , element: <Products />},
         {path:"*" , element: <NotFound /> },
     ]}
 ])

@@ -27,7 +27,7 @@ a , a:hover{
 .product:hover
 {
     box-shadow: var(--shadow);
-    border: solid 1px var(--main-color);
+    border: solid 2px var(--main-color);
 }
 .product .btn 
 {
@@ -56,4 +56,7 @@ a , a:hover{
 .bg-main-light 
 {
     background-color: var(--light-color) !important;
+}
+.fs-badge{
+    font-size: 10px;
 }

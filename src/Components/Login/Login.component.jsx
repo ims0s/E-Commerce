@@ -6,6 +6,7 @@ import * as yup from "yup"
 
 function Login() {
     const [errorMsg , setErrorMsg] = useState('')
+    const [loading , setLoading]=useState(false)
     const userSchema = yup.object({
         email: yup.string().email("invalid email address").required(),
     })
@@ -16,11 +17,13 @@ function Login() {
             password: '',
         },
         onSubmit: (values) => {
-            console.log(values)
+            setLoading(true)
             axios.post("https://ecommerce.routemisr.com/api/v1/auth/signin",values).then(res => {
-                console.log(res)
+                console.log(res.data.token)
+                
+                localStorage.setItem('token',res.data.token)
                 navigate('/home')
-            }).catch(res => setErrorMsg(res.response.data.message))
+            }).catch(res => {setErrorMsg(res.response?.data.message); setLoading(false)})
         },
         validationSchema: userSchema
 
@@ -42,7 +45,7 @@ function Login() {
                     <label className="mt-2" htmlFor=""> Password:</label>
                     <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} type="password" id="password" placeholder="Password" className={`form-control mb-2 ${formik.errors.password  && formik.touched.password ? 'is-invalid' : ' '}`} />
 
-                    <button disabled={!(formik.isValid&&formik.dirty) } onChange={formik.handleChange} value={formik.values.phone} type="submit" className="btn bg-main text-white ms-auto mt-2"> Login</button>
+                    <button disabled={!(formik.isValid&&formik.dirty) } onChange={formik.handleChange} value={formik.values.phone} type="submit" className="btn bg-main text-white ms-auto mt-2"> {loading?<i className="fa-solid fa-spinner fa-spin"></i>:"Login"}</button>
 
                 </form>
                 {errorMsg?<div className="alert alert-danger mt-2 "> {errorMsg}</div>:''}
