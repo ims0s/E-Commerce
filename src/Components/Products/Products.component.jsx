@@ -1,28 +1,24 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Product from "../Product/Product.component";
+import ProductsLoading from "./ProductLoading.component";
 
 
 function Products() {
-
-
+    const [products,setProducts]=useState([])
+    useEffect(()=>{
+        axios.get('https://ecommerce.routemisr.com/api/v1/products')
+        .then(res => res.data.data)
+        .then(data => setProducts(data))
+    },[])
+        
     return (
         <>
             <div className="container py-2 ">
                 <div className="row g-2 ">
-                    <div className="col-md-2 product overflow-hidden p-3 rounded-3 ">
-                        <Link to='/product-details'>
-                            <img src="https://ecommerce.routemisr.com/Route-Academy-products/1680403397402-cover.jpeg" alt="" className="w-100" />
-                            <p className="text-main"> anything</p>
-                            <h5>anything</h5>
-                            <div className="d-flex justify-content-between ">
-                                <div><span>1200 EGP</span></div>
-                                <div>
-                                    4.5
-                                    <i class="fa-solid fa-star rating-color ms-1 "></i>
-                                </div>
-                            </div>
-                        </Link>
-                        <button className="mt-2  btn bg-main text-white w-100 text-center ">Add To Cart</button>
-                    </div>
+                    {products[0]?products.map(item => {
+                        return <Product key={item._id} product={item} />
+                    }):<ProductsLoading/>}
                 </div>
             </div>
         </>
