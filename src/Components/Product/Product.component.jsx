@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import ProductStyle from "./Product.module.css"
 
 function Product(props) {
+
+    const [placeholder,setPlaceholder] = useState(true);
 
     const {imageCover,price,ratingsAverage,title,category}=props.product;
 
@@ -9,7 +12,10 @@ function Product(props) {
         <>
             <div className="col-md-2 product overflow-hidden p-3 rounded-3 ">
                 <Link to='/product-details'>
-                    <img src={imageCover} alt="" className="w-100" />
+                    <div className={placeholder?"placeholder-wave":""}>
+                    <img src={imageCover} onLoad={()=>setPlaceholder(false)}   alt="" className={`${ProductStyle.img_aspect } ${placeholder?"placeholder":""} `}/>
+
+                    </div>
                     <p className="text-main"> {category.name}</p>
                     <h5>{title.split(" ").splice(0,2).join(" ")}</h5>
                     <div className="d-flex justify-content-between ">

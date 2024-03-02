@@ -6,7 +6,7 @@ function ProductsLoading() {
                         <div className="placeholder col-12 img-placeholder"></div>
                     </div>
                     <p className="text-main placeholder-wave ">
-                        <span class="placeholder col-3 placeholder-sm bg-success "></span>
+                        <span className="placeholder col-3 placeholder-sm bg-success "></span>
                     </p>
                     <h5 className="placeholder-wave">
                         <span className="placeholder col-12"></span>
@@ -21,7 +21,7 @@ function ProductsLoading() {
                         <div className="placeholder col-12 img-placeholder"></div>
                     </div>
                     <p className="text-main placeholder-wave ">
-                        <span class="placeholder col-3 placeholder-sm bg-success "></span>
+                        <span className="placeholder col-3 placeholder-sm bg-success "></span>
                     </p>
                     <h5 className="placeholder-wave">
                         <span className="placeholder col-12"></span>
@@ -36,7 +36,7 @@ function ProductsLoading() {
                         <div className="placeholder col-12 img-placeholder"></div>
                     </div>
                     <p className="text-main placeholder-wave ">
-                        <span class="placeholder col-3 placeholder-sm bg-success "></span>
+                        <span className="placeholder col-3 placeholder-sm bg-success "></span>
                     </p>
                     <h5 className="placeholder-wave">
                         <span className="placeholder col-12"></span>
@@ -51,7 +51,7 @@ function ProductsLoading() {
                         <div className="placeholder col-12 img-placeholder"></div>
                     </div>
                     <p className="text-main placeholder-wave ">
-                        <span class="placeholder col-3 placeholder-sm bg-success "></span>
+                        <span className="placeholder col-3 placeholder-sm bg-success "></span>
                     </p>
                     <h5 className="placeholder-wave">
                         <span className="placeholder col-12"></span>
@@ -66,7 +66,7 @@ function ProductsLoading() {
                         <div className="placeholder col-12 img-placeholder"></div>
                     </div>
                     <p className="text-main placeholder-wave ">
-                        <span class="placeholder col-3 placeholder-sm bg-success "></span>
+                        <span className="placeholder col-3 placeholder-sm bg-success "></span>
                     </p>
                     <h5 className="placeholder-wave">
                         <span className="placeholder col-12"></span>
@@ -81,7 +81,7 @@ function ProductsLoading() {
                         <div className="placeholder col-12 img-placeholder"></div>
                     </div>
                     <p className="text-main placeholder-wave ">
-                        <span class="placeholder col-3 placeholder-sm bg-success "></span>
+                        <span className="placeholder col-3 placeholder-sm bg-success "></span>
                     </p>
                     <h5 className="placeholder-wave">
                         <span className="placeholder col-12"></span>
@@ -96,7 +96,7 @@ function ProductsLoading() {
                         <div className="placeholder col-12 img-placeholder"></div>
                     </div>
                     <p className="text-main placeholder-wave ">
-                        <span class="placeholder col-3 placeholder-sm bg-success "></span>
+                        <span className="placeholder col-3 placeholder-sm bg-success "></span>
                     </p>
                     <h5 className="placeholder-wave">
                         <span className="placeholder col-12"></span>
@@ -111,7 +111,7 @@ function ProductsLoading() {
                         <div className="placeholder col-12 img-placeholder"></div>
                     </div>
                     <p className="text-main placeholder-wave ">
-                        <span class="placeholder col-3 placeholder-sm bg-success "></span>
+                        <span className="placeholder col-3 placeholder-sm bg-success "></span>
                     </p>
                     <h5 className="placeholder-wave">
                         <span className="placeholder col-12"></span>
@@ -126,7 +126,7 @@ function ProductsLoading() {
                         <div className="placeholder col-12 img-placeholder"></div>
                     </div>
                     <p className="text-main placeholder-wave ">
-                        <span class="placeholder col-3 placeholder-sm bg-success "></span>
+                        <span className="placeholder col-3 placeholder-sm bg-success "></span>
                     </p>
                     <h5 className="placeholder-wave">
                         <span className="placeholder col-12"></span>
@@ -141,7 +141,7 @@ function ProductsLoading() {
                         <div className="placeholder col-12 img-placeholder"></div>
                     </div>
                     <p className="text-main placeholder-wave ">
-                        <span class="placeholder col-3 placeholder-sm bg-success "></span>
+                        <span className="placeholder col-3 placeholder-sm bg-success "></span>
                     </p>
                     <h5 className="placeholder-wave">
                         <span className="placeholder col-12"></span>
@@ -156,7 +156,7 @@ function ProductsLoading() {
                         <div className="placeholder col-12 img-placeholder"></div>
                     </div>
                     <p className="text-main placeholder-wave ">
-                        <span class="placeholder col-3 placeholder-sm bg-success "></span>
+                        <span className="placeholder col-3 placeholder-sm bg-success "></span>
                     </p>
                     <h5 className="placeholder-wave">
                         <span className="placeholder col-12"></span>
@@ -171,7 +171,7 @@ function ProductsLoading() {
                         <div className="placeholder col-12 img-placeholder"></div>
                     </div>
                     <p className="text-main placeholder-wave ">
-                        <span class="placeholder col-3 placeholder-sm bg-success "></span>
+                        <span className="placeholder col-3 placeholder-sm bg-success "></span>
                     </p>
                     <h5 className="placeholder-wave">
                         <span className="placeholder col-12"></span>

@@ -62,7 +62,8 @@ a , a:hover{
 }
 
 .img-placeholder{
-    height: 252.716px;
+    width: 100% !important;
+    aspect-ratio: auto 596 / 813 ;
 }
 
 @keyframes imageAnimation {

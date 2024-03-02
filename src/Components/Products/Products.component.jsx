@@ -7,9 +7,11 @@ import ProductsLoading from "./ProductLoading.component";
 function Products() {
     const [products,setProducts]=useState([])
     useEffect(()=>{
-        axios.get('https://ecommerce.routemisr.com/api/v1/products')
+        axios.get('https://ecommerce.routemisr.com/api/v1/products?limit=100')
         .then(res => res.data.data)
-        .then(data => setProducts(data))
+        .then(async (data) => {
+            setProducts(data)
+        })
     },[])
         
     return (
