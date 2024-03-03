@@ -2,23 +2,24 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Product from "../Product/Product.component";
 import ProductsLoading from "./ProductLoading.component";
+import { useQuery } from "react-query";
 
 
 function Products() {
-    const [products,setProducts]=useState([])
-    useEffect(()=>{
-        axios.get('https://ecommerce.routemisr.com/api/v1/products?limit=100')
-        .then(res => res.data.data)
-        .then(async (data) => {
-            setProducts(data)
-        })
-    },[])
-        
+
+    function getProducts(){
+        return axios.get('https://ecommerce.routemisr.com/api/v1/products?limit=100')
+    }
+
+    let {data, isLoading} = useQuery('Products',getProducts , {
+        cacheTime:5000
+    })
+
     return (
         <>
             <div className="container py-2 ">
                 <div className="row g-2 ">
-                    {products[0]?products.map(item => {
+                    {!isLoading?data.data.data.map(item => {
                         return <Product key={item._id} product={item} />
                     }):<ProductsLoading/>}
                 </div>

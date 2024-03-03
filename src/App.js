@@ -7,6 +7,7 @@ import Login from './Components/Login/Login.component';
 import Products from './Components/Products/Products.component';
 import Home from './Components/Home/Home.component';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
+import ProductDetails from './Components/ProductDetails/ProductDetails.component';
 
 const router = createBrowserRouter([
     {path:"/", element:<MainLayout  />  , children:[
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
         {path:"register" , element: <Register /> },
         {path:"login" , element: <Login /> },
         {path:"products" , element: <Products />},
+        {path:'productDetails/:productId', element: <ProductDetails />},
         {path:"*" , element: <NotFound /> },
     ]}
 ])

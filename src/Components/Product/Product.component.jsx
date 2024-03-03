@@ -5,13 +5,13 @@ import ProductStyle from "./Product.module.css"
 function Product(props) {
 
     const [placeholder,setPlaceholder] = useState(true);
-
-    const {imageCover,price,ratingsAverage,title,category}=props.product;
+    console.log(props.product)
+    const {_id,imageCover,price,ratingsAverage,title,category}=props.product;
 
     return (
         <>
             <div className="col-md-2 product overflow-hidden p-3 rounded-3 ">
-                <Link to='/product-details'>
+                <Link to={'/productDetails/'+_id}>
                     <div className={placeholder?"placeholder-wave":""}>
                     <img src={imageCover} onLoad={()=>setPlaceholder(false)}   alt="" className={`${ProductStyle.img_aspect } ${placeholder?"placeholder":""} `}/>
 
