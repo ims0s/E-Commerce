@@ -11,7 +11,7 @@ function ProductDetails() {
         axios.get('https://ecommerce.routemisr.com/api/v1/products/' + productId)
             .then(res => res.data.data)
             .then(data => setProduct(data))
-    }, [])
+    }, [productId])
 
 
 

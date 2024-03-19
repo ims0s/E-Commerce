@@ -1,8 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/freshcart-logo.svg"
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+// import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext/CartContext.context";
 
 function Navbar() {
+    const {counter} = useContext(CartContext)
     const token = localStorage.getItem("token");
     const navigate = useNavigate()
     const logout = () => {
@@ -43,7 +46,7 @@ function Navbar() {
                                     <Link className="nav-link" to="/cart">
                                         <i className="fa-solid fa-cart-shopping position-relative fs-3 ">
                                             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger fs-badge">
-                                                4
+                                                {counter}
                                                 <span className="visually-hidden">unread messages</span>
                                             </span>
                                         </i>

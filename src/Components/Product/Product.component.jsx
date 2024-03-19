@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductStyle from "./Product.module.css"
+import { CartContext } from "../../context/CartContext/CartContext.context";
 
 function Product(props) {
 
+    const {counter,setCounter}=useContext(CartContext)
+
     const [placeholder,setPlaceholder] = useState(true);
-    console.log(props.product)
     const {_id,imageCover,price,ratingsAverage,title,category}=props.product;
 
     return (
@@ -26,7 +28,7 @@ function Product(props) {
                         </div>
                     </div>
                 </Link>
-                <button className="mt-2  btn bg-main text-white w-100 text-center ">Add To Cart</button>
+                <button className="mt-2  btn bg-main text-white w-100 text-center " onClick={()=>{setCounter(counter+1)}}>Add To Cart</button>
             </div>
         </>
     );
