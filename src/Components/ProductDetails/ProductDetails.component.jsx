@@ -41,7 +41,7 @@ function ProductDetails() {
             <div className="container pt-5 ">
                 <div className="row g-4 ">
                     <div className="col-md-3">
-                        <img className={loadingStyle.img_aspect} src={product.imageCover}alt="" />
+                        <img  className={loadingStyle.img_aspect} src={product.imageCover} alt="loading image" />
                     </div>
                     <div className="col-md-8 offset-md-1 ">
                         <div className="pt-5">
