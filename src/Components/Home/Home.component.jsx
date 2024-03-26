@@ -1,6 +1,6 @@
 import CategorySlider from "../CategorySlider/CategorySlider.component";
-import FeaturedProducts from "../FeaturedProducts/FeaturedProducts.component";
 import MainSlider from "../MainSlider/MainSlider.component";
+import Products from "../Products/Products.component";
 
 
 function Home() {
@@ -8,7 +8,7 @@ function Home() {
         <>
             <MainSlider />
             <CategorySlider />
-            <FeaturedProducts />
+            <Products/>
         </>
     );
 }
