@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
 import Product from "../Product/Product.component";
 import ProductsLoading from "./ProductLoading.component";
 import { useQuery } from "react-query";
