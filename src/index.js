@@ -6,7 +6,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import "@fortawesome/fontawesome-free/css/all.min.css"
 import './index.css';
 import {QueryClient, QueryClientProvider} from "react-query"
-import {ReactQueryDevtools} from "react-query/devtools"
+import { ReactQueryDevtools } from 'react-query/devtools/development';
+
 const query = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

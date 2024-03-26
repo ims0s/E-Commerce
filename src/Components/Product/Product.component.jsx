@@ -2,13 +2,34 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductStyle from "./Product.module.css"
 import { CartContext } from "../../context/CartContext/CartContext.context";
+import toast from "react-hot-toast";
 
 function Product(props) {
 
-    const {counter,setCounter}=useContext(CartContext)
-
+    const {setCounter,addProductToCart}=useContext(CartContext)
+    const[loading,setLoading]=useState(false)
     const [placeholder,setPlaceholder] = useState(true);
     const {_id,imageCover,price,ratingsAverage,title,category}=props.product;
+
+    async function addProduct(){
+        setLoading(true)
+        const res = await addProductToCart(_id);
+        if(res.status==="success"){
+            toast.success("Product Added Successfully!!",{
+                position:"top-right",
+                duration: 2000
+            })
+            setCounter(res.numOfCartItems)
+            
+            setLoading(false)
+        }else {
+            toast.error("Error ocurred !!",{
+                position:"top-right",
+                duration:2000
+            })
+            setLoading(false)
+        }
+    }
 
     return (
         <>
@@ -28,7 +49,7 @@ function Product(props) {
                         </div>
                     </div>
                 </Link>
-                <button className="mt-2  btn bg-main text-white w-100 text-center " onClick={()=>{setCounter(counter+1)}}>Add To Cart</button>
+                <button onClick={addProduct} disabled={loading} className="btn bg-main text-white text-center w-100">{!loading?"Add To Cart":<i className="fa-solid fa-spinner fa-spin"></i>}</button>
             </div>
         </>
     );

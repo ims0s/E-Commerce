@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext/CartContext.context";
 
 function Navbar() {
-    const {counter} = useContext(CartContext)
+    const { counter } = useContext(CartContext)
     const token = localStorage.getItem("token");
     const navigate = useNavigate()
     const logout = () => {
@@ -45,10 +45,13 @@ function Navbar() {
                                 <li className="nav-item ">
                                     <Link className="nav-link" to="/cart">
                                         <i className="fa-solid fa-cart-shopping position-relative fs-3 ">
-                                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger fs-badge">
-                                                {counter}
-                                                <span className="visually-hidden">unread messages</span>
-                                            </span>
+                                            {
+                                                counter ? <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger fs-badge">
+                                                    {counter}
+                                                    <span className="visually-hidden">unread messages</span>
+                                                </span> : ""
+                                            }
+
                                         </i>
                                     </Link>
                                 </li>

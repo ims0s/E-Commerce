@@ -9,6 +9,7 @@ import Home from './Components/Home/Home.component';
 // import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import ProductDetails from './Components/ProductDetails/ProductDetails.component';
 import CartContextProvider from './context/CartContext/CartContext.context';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
     {path:"/", element:<MainLayout  />  , children:[
@@ -28,6 +29,7 @@ function App() {
             <CartContextProvider>
                 <RouterProvider router={router} />
             </CartContextProvider>
+            <Toaster/>
         </div>
     );
 }
