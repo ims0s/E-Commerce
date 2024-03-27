@@ -21,7 +21,7 @@ function ProductDetails() {
         const res = await addProductToCart(productId);
         if(res.status==="success"){
             toast.success("Product Added Successfully!!",{
-                position:"top-right",
+                position:"bottom-right",
                 duration: 2000
             })
             getUserCart();
@@ -29,7 +29,7 @@ function ProductDetails() {
             setLoading(false)
         }else {
             toast.error("Error ocurred !!",{
-                position:"top-right",
+                position:"bottom-right",
                 duration:2000
             })
             setLoading(false)

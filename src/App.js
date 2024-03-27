@@ -15,6 +15,7 @@ import CategoryDetails from './Components/CategoryDetails/CategoryDetails.compon
 import Brands from './Components/Brands/Brands.component';
 import Cart from './Components/Cart/Cart.component';
 import AuthContextProvider from './context/AuthContext/AuthContext.context';
+import Checkout from './Components/Checkout/Checkout.component';
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
             { path: "products", element: <Products /> },
             { path: 'productDetails/:productId', element: <ProductDetails /> },
             { path: 'cart', element: <ProtectedRoute><Cart /></ProtectedRoute> },
+            {path:"checkout",element:<ProtectedRoute><Checkout/></ProtectedRoute>},
             { path: "*", element: <NotFound /> },
         ]
     }

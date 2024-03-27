@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import { Vortex, Watch } from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
+import imgStyle from "./Brands.module.css"
 
 export default function Brands() {
     let [brandDetail, setBrandDetail] = useState(null)
@@ -54,7 +55,7 @@ export default function Brands() {
 
                                     </div>
                                     <div>
-                                        <img src={brandDetail.image} alt={brandDetail.name} className='w-100' />
+                                        <img src={brandDetail.image} alt={brandDetail.name} className={`${imgStyle.aspect_img} w-100`} />
 
                                     </div>
 
@@ -112,15 +113,15 @@ export default function Brands() {
             />
 
         </div> : <>
-            <div className="row  g-3">{
+            <div key={brand.id} className="row  g-3">{
                 brand.map((brand) => <>
                     <div key={brand._id} onClick={() => getSubBrands(brand._id)} className="col-md-3    ">
 
                         <Link data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <div className=" border product rounded-3">
+                            <div className=" border product ro'w-100'unded-3">
                                 <div className="">
 
-                                    <img src={brand.image} className='w-100 rounded-3' alt="" />
+                                    <img src={brand.image} className={`w-100 rounded-3 ${imgStyle.img_aspect}`} alt="" />
                                 </div>
                                 <h6 className='text-center text-main'> {brand.name}</h6>
 
