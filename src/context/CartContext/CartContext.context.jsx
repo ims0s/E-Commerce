@@ -105,7 +105,9 @@ return (
         getUserCart,
         updateItemCounts,
         removeItems,
-        clearCart
+        clearCart,
+        cartId,
+        setCartId,
     }}>
         {children}
     </CartContext.Provider>

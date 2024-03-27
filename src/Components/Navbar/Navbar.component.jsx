@@ -35,6 +35,9 @@ function Navbar() {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/brands">Brands</Link>
                             </li>
+                            <li className="nav-item "> 
+                                <Link className="nav-link " to="/allorders" >Orders</Link>
+                            </li>
 
                         </ul>
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
