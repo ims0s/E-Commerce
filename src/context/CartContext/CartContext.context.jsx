@@ -1,5 +1,6 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { AuthContext } from "../AuthContext/AuthContext.context";
 
 export const CartContext = createContext(0)
 
@@ -7,16 +8,29 @@ export const CartContext = createContext(0)
 
 function CartContextProvider({children}) {
 
-
+    const {token} = useContext(AuthContext);
     const [counter,setCounter]=useState(0);
+    const [Products,setProducts]=useState([]);
+    const [totalCartPrice,setTotalCartPrice]=useState(0)
     
-    useEffect(()=>{
+    function getUserCart (){
         axios.get("https://ecommerce.routemisr.com/api/v1/cart",{
             headers:{
                 token:localStorage.getItem("token")
             }
-        }).then(res=>res.data).then(data => setCounter(data.numOfCartItems))
-    },[])
+        }).then(res=>res.data)
+        .then(data => {
+            setCounter(data.numOfCartItems)
+            setProducts(data.data.products)
+            setTotalCartPrice(data.data.totalCartPrice)
+        })
+        .catch(err =>{
+            console.log("err: ",err)
+        })
+    }
+    useEffect(()=>{
+        getUserCart();
+    },[token])
     
     async function addProductToCart(id){
         try{
@@ -33,7 +47,13 @@ function CartContextProvider({children}) {
         }
     }
     return ( 
-        <CartContext.Provider value={{counter , setCounter , addProductToCart}}>
+        <CartContext.Provider value={{
+            addProductToCart,
+            counter , 
+            Products,
+            totalCartPrice,
+            getUserCart,
+            }}>
             {children}
         </CartContext.Provider>
      );

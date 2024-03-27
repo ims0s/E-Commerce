@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 function Product(props) {
 
-    const {setCounter,addProductToCart}=useContext(CartContext)
+    const {addProductToCart, getUserCart}=useContext(CartContext)
     const[loading,setLoading]=useState(false)
     const [placeholder,setPlaceholder] = useState(true);
     const {_id,imageCover,price,ratingsAverage,title,category}=props.product;
@@ -19,7 +19,7 @@ function Product(props) {
                 position:"top-right",
                 duration: 2000
             })
-            setCounter(res.numOfCartItems)
+            getUserCart();
             
             setLoading(false)
         }else {

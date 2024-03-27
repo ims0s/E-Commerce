@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup"
+import { AuthContext } from "../../context/AuthContext/AuthContext.context";
 
 function Login() {
     const [errorMsg , setErrorMsg] = useState('')
     const [loading , setLoading]=useState(false)
+    const {setToken}=useContext(AuthContext)
     const userSchema = yup.object({
         email: yup.string().email("invalid email address").required(),
     })
@@ -20,8 +22,8 @@ function Login() {
             setLoading(true)
             axios.post("https://ecommerce.routemisr.com/api/v1/auth/signin",values).then(res => {
                 console.log(res.data.token)
-                
                 localStorage.setItem('token',res.data.token)
+                setToken(res.data.token)
                 navigate('/home')
             }).catch(res => {setErrorMsg(res.response?.data.message); setLoading(false)})
         },

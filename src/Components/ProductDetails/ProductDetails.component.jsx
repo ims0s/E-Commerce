@@ -9,7 +9,7 @@ function ProductDetails() {
     const [product, setProduct] = useState(null)
     const [loading,setLoading] = useState(false);
     const { productId } = useParams();
-    const {addProductToCart , setCounter} = useContext(CartContext)
+    const {addProductToCart , getUserCart} = useContext(CartContext)
     useEffect(() => {
         axios.get('https://ecommerce.routemisr.com/api/v1/products/' + productId)
             .then(res => res.data.data)
@@ -24,7 +24,7 @@ function ProductDetails() {
                 position:"top-right",
                 duration: 2000
             })
-            setCounter(res.numOfCartItems)
+            getUserCart();
             
             setLoading(false)
         }else {
