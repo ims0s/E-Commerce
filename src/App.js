@@ -20,6 +20,8 @@ import AllOrders from './Components/AllOrders/AllOrders.component';
 import WishListContextProvider from './context/WishlistContext/WishListContext.context';
 import WishList from './Components/WishList/WishList.component';
 import ForgetPassword from './Components/ForgetPassword/ForgetPassword.component';
+import ResetCode from './Components/ResetCode/ResetCode.component';
+import ResetPassword from './Components/ResetPassword/ResetPassword.component';
 
 const router = createBrowserRouter([
     {
@@ -29,6 +31,8 @@ const router = createBrowserRouter([
             { path: "register", element: <Register /> },
             { path: "login", element: <Login /> },
             {path:"forgetpassword",element:<ForgetPassword/>},
+            {path:"resetCode",element:<ResetCode/>},
+            {path:"resetpassword",element: <ResetPassword/>},
             { path: "categories", element: <Categories /> },
             { path: "categoryDetails/:id", element: <CategoryDetails /> },
             { path: "brands", element: <Brands /> },
