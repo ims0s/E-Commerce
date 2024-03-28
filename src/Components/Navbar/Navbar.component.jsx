@@ -3,9 +3,11 @@ import logo from "../../assets/images/freshcart-logo.svg"
 // import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext/CartContext.context";
+import { WishListContext } from "../../context/WishlistContext/WishListContext.context";
 
 function Navbar() {
     const { counter } = useContext(CartContext)
+    const {Products} = useContext(WishListContext);
     const token = localStorage.getItem("token");
     const navigate = useNavigate()
     const logout = () => {
@@ -60,7 +62,7 @@ function Navbar() {
                                     </Link>
                                 </li>
                                 <li className="nav-item  ">
-                                    <Link className="nav-link" to="/wishlist"><i className="fa-regular fa-heart fs-3"></i></Link>
+                                    <Link className="nav-link" to="/wishlist"><i className={`fa-solid fa-heart fs-3 ${Products[0]?"text-danger":"" }`}></i></Link>
                                 </li>
                             </>
                                 : <>

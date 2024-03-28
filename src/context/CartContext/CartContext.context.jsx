@@ -27,7 +27,7 @@ function CartContextProvider({ children }) {
                 setCartId(data.data._id);
             })
             .catch(err => {
-                if (err.response.status == 404) { 
+                if (err.response.status === 404) { 
                 setCounter(0);
                 setProducts([]);
                 setTotalCartPrice(0);

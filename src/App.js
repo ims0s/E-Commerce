@@ -17,6 +17,9 @@ import Cart from './Components/Cart/Cart.component';
 import AuthContextProvider from './context/AuthContext/AuthContext.context';
 import Checkout from './Components/Checkout/Checkout.component';
 import AllOrders from './Components/AllOrders/AllOrders.component';
+import WishListContextProvider from './context/WishlistContext/WishListContext.context';
+import WishList from './Components/WishList/WishList.component';
+import ForgetPassword from './Components/ForgetPassword/ForgetPassword.component';
 
 const router = createBrowserRouter([
     {
@@ -25,14 +28,16 @@ const router = createBrowserRouter([
             { path: "home", element: <Home /> },
             { path: "register", element: <Register /> },
             { path: "login", element: <Login /> },
+            {path:"forgetpassword",element:<ForgetPassword/>},
             { path: "categories", element: <Categories /> },
             { path: "categoryDetails/:id", element: <CategoryDetails /> },
             { path: "brands", element: <Brands /> },
             { path: "products", element: <Products /> },
             { path: 'productDetails/:productId', element: <ProductDetails /> },
             { path: 'cart', element: <ProtectedRoute><Cart /></ProtectedRoute> },
-            {path:"checkout",element:<ProtectedRoute><Checkout/></ProtectedRoute>},
-            {path : "allorders" , element: <ProtectedRoute><AllOrders/></ProtectedRoute>},
+            { path: "checkout", element: <ProtectedRoute><Checkout /></ProtectedRoute> },
+            { path: "allorders", element: <ProtectedRoute><AllOrders /></ProtectedRoute> },
+            {path:"wishlist", element: <ProtectedRoute><WishList/></ProtectedRoute>},
             { path: "*", element: <NotFound /> },
         ]
     }
@@ -43,7 +48,9 @@ function App() {
         <div className="App">
             <AuthContextProvider>
                 <CartContextProvider>
-                    <RouterProvider router={router} />
+                    <WishListContextProvider>
+                        <RouterProvider router={router} />
+                    </WishListContextProvider>
                 </CartContextProvider>
             </AuthContextProvider>
             <Toaster />
