@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 function CartItem(props) {
     const { count, product, price } = props
     const [loading , setLoading] = useState(false)
-    const { updateItemCounts, getUserCart, removeItems , clearCart } = useContext(CartContext);
+    const { updateItemCounts, getUserCart, removeItems  } = useContext(CartContext);
 
     let settings = {
         position: "bottom-right",
